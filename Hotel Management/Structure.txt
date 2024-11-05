@@ -1,0 +1,86 @@
+HotelManagement Database
+│
+├── Guest
+│   ├── GuestID (Primary Key)
+│   ├── Name
+│   ├── Phone
+│   ├── Email
+│   ├── Address
+│   ├── Nationality
+│   ├── Preferences
+│   ├── PastStays
+│   └── Feedback
+│
+├── Reservation
+│   ├── ReservationID (Primary Key)
+│   ├── GuestID (Foreign Key to Guest)
+│   ├── RoomID (Foreign Key to Room)
+│   ├── CheckInDate
+│   ├── CheckOutDate
+│   ├── ReservationStatus (e.g., Confirmed, Pending, Canceled)
+│   ├── PaymentStatus
+│   └── SpecialRequests
+│
+├── Room
+│   ├── RoomID (Primary Key)
+│   ├── RoomNumber
+│   ├── RoomType (e.g., Single, Double, Suite)
+│   ├── AvailabilityStatus
+│   ├── PricePerNight
+│   ├── Amenities (e.g., Wi-Fi, Air Conditioning)
+│   └── HousekeepingStatus (e.g., Clean, Dirty)
+│
+├── Employee
+│   ├── EmployeeID (Primary Key)
+│   ├── Name
+│   ├── Role (e.g., Manager, Housekeeping, Front Desk)
+│   ├── ContactDetails
+│   ├── WorkSchedule
+│   ├── Salary
+│   └── PerformanceReviews
+│
+├── BillingPayment
+│   ├── TransactionID (Primary Key)
+│   ├── GuestID (Foreign Key to Guest)
+│   ├── ReservationID (Foreign Key to Reservation)
+│   ├── RoomCharges
+│   ├── AdditionalServices (e.g., Room Service, Spa)
+│   ├── PaymentMethod (e.g., Credit Card, Cash)
+│   └── PaymentStatus
+│
+├── InventoryHousekeeping
+│   ├── InventoryID (Primary Key)
+│   ├── ItemName (e.g., Towels, Toiletries, Linens)
+│   ├── QuantityAvailable
+│   ├── RoomStatus (e.g., Clean, Dirty, Under Maintenance)
+│   └── HousekeepingSchedule
+│
+├── ServiceFacilities
+│   ├── ServiceID (Primary Key)
+│   ├── ServiceType (e.g., Room Service, Laundry, Spa)
+│   ├── AvailabilityStatus
+│   ├── PricePerService
+│   ├── GuestID (Foreign Key to Guest for services availed)
+│   └── ServiceFeedback
+│
+├── FeedbackReview
+│   ├── FeedbackID (Primary Key)
+│   ├── GuestID (Foreign Key to Guest)
+│   ├── Rating (out of 5)
+│   ├── Comments
+│   └── FeedbackDate
+│
+├── EventsBookings
+│   ├── EventID (Primary Key)
+│   ├── EventType (e.g., Conference, Wedding)
+│   ├── GuestID (Foreign Key to Guest, if organized by a guest)
+│   ├── OrganizerContact (External contact for non-guest events)
+│   ├── EventDateTime
+│   ├── VenueRoomAllocated
+│   └── EventCharges
+│
+└── LoyaltyRewards
+    ├── GuestID (Primary Key, Foreign Key to Guest)
+    ├── PointsEarned
+    ├── RewardTier (e.g., Silver, Gold, Platinum)
+    └── DiscountsUsed
